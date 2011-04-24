@@ -63,6 +63,7 @@ to all of the `"genres"`! This will completely fuck up your document.
 ## The Solution
 
 Step 1: Install this gem, `activeresource_json_patch`: either add it to your `Gemfile` and `bundle install`, or simply `gem install activeresource_json_patch`
+
 Step 2: Require it in your codebase. If you included this in a Rails project via a `Gemfile`, then you're good to go. Otherwise, `require activeresource_json_patch` somewhere in your code.
 
 Now, with the gem installed and loaded, were you to repeat the above steps, the JSON it will would send back would not inlude the superfluous `"genre"` roots:
