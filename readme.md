@@ -33,7 +33,7 @@ Now, let's update the author attribute and save it.
     @book.author = "Arthur C. Clarke"
     @book.save
 
-Great! But wait, let's inspect the JSON that it sent back:
+Great! But wait, let's inspect the JSON that it sent to the server on save:
 
     {
       "book": {
