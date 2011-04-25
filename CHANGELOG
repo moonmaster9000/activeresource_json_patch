@@ -1,0 +1,3 @@
+v0.0.1
+  -- default include_root_in_json to false for ActiveResource::Base
+

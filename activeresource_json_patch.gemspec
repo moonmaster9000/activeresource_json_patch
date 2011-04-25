@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name = %q{yasm}
+  s.name = %q{activeresource_json_patch}
   s.version = File.read "VERSION"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=

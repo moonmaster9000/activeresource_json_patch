@@ -19,9 +19,12 @@ When /^I save the book$/ do
 end
 
 Then /^ActiveResource should send the following back to the server:$/ do |book_body|
-  update_book      = ActiveResource::Request.new(:put, @path, book_body.gsub(/^\s+/, "").gsub("\n", "").gsub(": \"", ":\""), {"Content-Type" => "application/json"})
+  book_body = book_body.gsub(/^\s+/, "").gsub("\n", "").gsub(": \"", ":\"").gsub(": {", ":{").gsub(": [", ":[")
+  update_book      = ActiveResource::Request.new(:put, @path, book_body)
   updated_response = ActiveResource::Response.new("", 204, {"Location" => @path})
   ActiveResource::HttpMock.respond_to({update_book => updated_response})
   @book.save
-  ActiveResource::HttpMock.requests.include?(update_book).should be_true
+  found = false
+  ActiveResource::HttpMock.requests.each {|r| found = r.body == book_body }
+  found.should be_true
 end
